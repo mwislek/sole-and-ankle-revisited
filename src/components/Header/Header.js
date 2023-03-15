@@ -1,10 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import Logo from '../Logo';
-import SuperHeader from '../SuperHeader';
-import MobileMenu from '../MobileMenu';
+import { COLORS, MEDIA_QUERY, WEIGHTS } from "../../constants";
+import Icon from "../Icon";
+import Logo from "../Logo";
+import MobileMenu from "../MobileMenu";
+import SuperHeader from "../SuperHeader";
+import UnstyledButton from "../UnstyledButton";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -30,6 +32,17 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
+        <Nav>
+          <MobileNavButton>
+            <Icon id="shopping-bag" strokeWidth={2} />
+          </MobileNavButton>
+          <MobileNavButton>
+            <Icon id="search" strokeWidth={2} />
+          </MobileNavButton>
+          <MobileNavButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={2} />
+          </MobileNavButton>
+        </Nav>
       </MainHeader>
 
       <MobileMenu
@@ -46,16 +59,28 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
+    border-top: 4px solid ${COLORS.gray[900]};
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
-  margin: 0px 48px;
+
+  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
+    gap: 40px;
+  }
+
+  @media ${MEDIA_QUERY.PHONE_AND_LESS} {
+    gap: 28px;
+  }
 `;
 
 const Side = styled.div`
   flex: 1;
+  align-self: flex-start;
 `;
 
 const NavLink = styled.a`
@@ -67,6 +92,18 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: ${COLORS.secondary};
+  }
+
+  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
+    display: none;
+  }
+`;
+
+const MobileNavButton = styled(UnstyledButton)`
+  display: none;
+
+  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
+    display: revert;
   }
 `;
 

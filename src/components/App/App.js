@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 
 import Header from '../Header';
 import ShoeIndex from '../ShoeIndex';
+import { MEDIA_QUERY } from "../../constants";
 
 const App = () => {
   const [sortId, setSortId] = React.useState('newest');
@@ -19,6 +20,10 @@ const App = () => {
 
 const Main = styled.main`
   padding: 64px 32px;
+
+  @media ${MEDIA_QUERY.PHONE_AND_LESS} {
+    padding: 64px 16px;
+  }
 `;
 
 export default App;

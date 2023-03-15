@@ -1,3 +1,9 @@
+export const BREAKPOINTS = {
+  LAPTOP_MAX: 81.25, // rem
+  PHONE_MAX: 37.5,
+  TABLET_MAX: 59.375,
+}
+
 export const COLORS = {
   white: 'hsl(0deg 0% 100%)',
   gray: {
@@ -10,6 +16,12 @@ export const COLORS = {
   primary: 'hsl(340deg 65% 47%)',
   secondary: 'hsl(240deg 60% 63%)',
 };
+
+export const MEDIA_QUERY = {
+  LAPTOP_AND_LESS: `(max-width: ${BREAKPOINTS.LAPTOP_MAX}rem)`,
+  PHONE_AND_LESS: `(max-width: ${BREAKPOINTS.PHONE_MAX}rem)`,
+  TABLET_AND_LESS: `(max-width: ${BREAKPOINTS.TABLET_MAX}rem)`,
+}
 
 export const WEIGHTS = {
   normal: 500,
