@@ -1,7 +1,7 @@
-export const BREAKPOINTS = {
-  LAPTOP_MAX: 81.25, // rem
-  PHONE_MAX: 37.5,
-  TABLET_MAX: 59.375,
+export const BREAKPOINT = {
+  LAPTOP: 1300, // px
+  PHONE: 600,
+  TABLET: 950,
 }
 
 export const COLORS = {
@@ -18,9 +18,9 @@ export const COLORS = {
 };
 
 export const MEDIA_QUERY = {
-  LAPTOP_AND_LESS: `(max-width: ${BREAKPOINTS.LAPTOP_MAX}rem)`,
-  PHONE_AND_LESS: `(max-width: ${BREAKPOINTS.PHONE_MAX}rem)`,
-  TABLET_AND_LESS: `(max-width: ${BREAKPOINTS.TABLET_MAX}rem)`,
+  LAPTOP_AND_SMALLER: `(max-width: ${BREAKPOINT.LAPTOP / 16}rem)`,
+  PHONE_AND_SMALLER: `(max-width: ${BREAKPOINT.PHONE / 16}rem)`,
+  TABLET_AND_SMALLER: `(max-width: ${BREAKPOINT.TABLET / 16}rem)`,
 }
 
 export const WEIGHTS = {

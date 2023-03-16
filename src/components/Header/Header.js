@@ -20,9 +20,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoContainer>
           <Logo />
-        </Side>
+        </LogoContainer>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -31,18 +31,18 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side />
-        <Nav>
-          <MobileNavButton>
+        <Filler />
+        <MobileActions>
+          <MobileActionButton>
             <Icon id="shopping-bag" strokeWidth={2} />
-          </MobileNavButton>
-          <MobileNavButton>
+          </MobileActionButton>
+          <MobileActionButton>
             <Icon id="search" strokeWidth={2} />
-          </MobileNavButton>
-          <MobileNavButton onClick={() => setShowMobileMenu(true)}>
+          </MobileActionButton>
+          <MobileActionButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" strokeWidth={2} />
-          </MobileNavButton>
-        </Nav>
+          </MobileActionButton>
+        </MobileActions>
       </MainHeader>
 
       <MobileMenu
@@ -60,7 +60,8 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
+  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+    align-items: center;
     border-top: 4px solid ${COLORS.gray[900]};
   }
 `;
@@ -68,19 +69,23 @@ const MainHeader = styled.div`
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
+  margin: 0px 48px;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
-    gap: 40px;
-  }
-
-  @media ${MEDIA_QUERY.PHONE_AND_LESS} {
-    gap: 28px;
+  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+    display: none;
   }
 `;
 
-const Side = styled.div`
+const LogoContainer = styled.div`
   flex: 1;
-  align-self: flex-start;
+`;
+
+const Filler = styled.div`
+  flex: 1;
+
+  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+    display: none;
+  }
 `;
 
 const NavLink = styled.a`
@@ -93,16 +98,25 @@ const NavLink = styled.a`
   &:first-of-type {
     color: ${COLORS.secondary};
   }
+`;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
-    display: none;
+const MobileActions = styled.nav`
+  display: none;
+
+  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+    display: flex;
+    gap: 40px;
+  }
+
+  @media ${MEDIA_QUERY.PHONE_AND_SMALLER} {
+    gap: 28px;
   }
 `;
 
-const MobileNavButton = styled(UnstyledButton)`
+const MobileActionButton = styled(UnstyledButton)`
   display: none;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
+  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
     display: revert;
   }
 `;

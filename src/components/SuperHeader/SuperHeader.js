@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 32px;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_LESS} {
+  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
     display: none;
   }
 `;
