@@ -59,7 +59,7 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+  @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     align-items: center;
     border-top: 4px solid ${COLORS.gray[900]};
     justify-content: space-between;
@@ -76,7 +76,7 @@ const Nav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+  @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     display: none;
   }
 `;
@@ -84,7 +84,7 @@ const Nav = styled.nav`
 const LogoContainer = styled.div`
   flex: 1;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+  @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     flex: revert;
   }
 `;
@@ -92,7 +92,7 @@ const LogoContainer = styled.div`
 const Filler = styled.div`
   flex: 1;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+  @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     display: none;
   }
 `;
@@ -112,7 +112,7 @@ const NavLink = styled.a`
 const MobileActions = styled.nav`
   display: none;
 
-  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+  @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     display: flex;
     gap: 32px;
   }
