@@ -7,6 +7,7 @@ import Logo from "../Logo";
 import MobileMenu from "../MobileMenu";
 import SuperHeader from "../SuperHeader";
 import UnstyledButton from "../UnstyledButton";
+import VisuallyHidden from "../VisuallyHidden";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -33,15 +34,18 @@ const Header = () => {
         </Nav>
         <Filler />
         <MobileActions>
-          <MobileActionButton>
+          <ShoppingCartButton>
             <Icon id="shopping-bag" strokeWidth={2} />
-          </MobileActionButton>
-          <MobileActionButton>
+            <VisuallyHidden>Open Shooping Cart</VisuallyHidden>
+          </ShoppingCartButton>
+          <UnstyledButton>
             <Icon id="search" strokeWidth={2} />
-          </MobileActionButton>
-          <MobileActionButton onClick={() => setShowMobileMenu(true)}>
+            <VisuallyHidden>Search</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" strokeWidth={2} />
-          </MobileActionButton>
+            <VisuallyHidden>Mobile menu</VisuallyHidden>
+          </UnstyledButton>
         </MobileActions>
       </MainHeader>
 
@@ -63,6 +67,12 @@ const MainHeader = styled.div`
   @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
     align-items: center;
     border-top: 4px solid ${COLORS.gray[900]};
+    justify-content: space-between;
+  }
+
+  @media ${MEDIA_QUERY.PHONE_AND_SMALLER} {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `;
 
@@ -78,6 +88,10 @@ const Nav = styled.nav`
 
 const LogoContainer = styled.div`
   flex: 1;
+
+  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
+    flex: revert;
+  }
 `;
 
 const Filler = styled.div`
@@ -105,20 +119,16 @@ const MobileActions = styled.nav`
 
   @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
     display: flex;
-    gap: 40px;
+    gap: 32px;
   }
 
   @media ${MEDIA_QUERY.PHONE_AND_SMALLER} {
-    gap: 28px;
+    gap: 16px;
   }
 `;
 
-const MobileActionButton = styled(UnstyledButton)`
-  display: none;
-
-  @media ${MEDIA_QUERY.LAPTOP_AND_SMALLER} {
-    display: revert;
-  }
-`;
+const ShoppingCartButton = styled(UnstyledButton)`
+  transform: translateX(-2px);
+`
 
 export default Header;
