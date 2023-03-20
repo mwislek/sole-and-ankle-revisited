@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { COLORS, MEDIA_QUERY, WEIGHTS } from "../../constants";
+import { MEDIA_QUERY } from "../../constants";
 import Icon from "../Icon";
 import Logo from "../Logo";
 import MobileMenu from "../MobileMenu";
@@ -53,15 +53,15 @@ const Header = () => {
 };
 
 const MainHeader = styled.div`
+  border-bottom: 1px solid var(--colors-gray-300);
   display: flex;
   align-items: baseline;
+  overflow: auto;
   padding: 18px 32px;
-  height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     align-items: center;
-    border-top: 4px solid ${COLORS.gray[900]};
+    border-top: 4px solid var(--colors-gray-900);
     justify-content: space-between;
   }
 
@@ -75,7 +75,7 @@ const Nav = styled.nav`
   display: flex;
   gap: clamp(1.5rem, 7vw - 2.75rem, 3rem);
   margin: 0px 48px;
-  overflow: auto;
+
 
   @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     display: none;
@@ -102,11 +102,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--colors-gray-900);
+  font-weight: var(--weight-medium);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--colors-secondary);
   }
 `;
 
