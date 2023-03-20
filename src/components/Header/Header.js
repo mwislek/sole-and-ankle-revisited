@@ -20,11 +20,11 @@ const Header = () => {
           <Logo />
         </LogoContainer>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
+          <NavLink href="/sale">À&nbsp;Vendre</NavLink>
+          <NavLink href="/new">Nouvelle&nbsp;Versions</NavLink>
+          <NavLink href="/men">Hommes</NavLink>
+          <NavLink href="/women">Femmes</NavLink>
+          <NavLink href="/kids">Les&nbsp;Enfents</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Filler />
@@ -73,8 +73,9 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1.5rem, 7vw - 2.75rem, 3rem);
   margin: 0px 48px;
+  overflow: auto;
 
   @media ${MEDIA_QUERY.TABLET_AND_SMALLER} {
     display: none;
